@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# StoryHub Discovery Synthesis
+
+Internal site presenting the discovery synthesis from the CNN StoryHub sprint — domain map, ERD, glossary, workflows, organization, decisions, and next steps.
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Next.js 16 (App Router) + Turbopack
+- React 19, TypeScript
+- Tailwind CSS 4 (via `@import "tailwindcss"` in `globals.css`)
+- Custom dark theme with CNN red accent
+- Fonts: Inter (sans), Instrument Serif (display), JetBrains Mono (mono)
 
-## Learn More
+## Comments / Feedback
 
-To learn more about Next.js, take a look at the following resources:
+The site uses [**Giscus**](https://giscus.app) — comments are stored as **GitHub Discussions** on a public repo. No backend, no third-party tracking, sign-in is GitHub OAuth.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Pages with comment threads:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `/contexts` — domain & boundaries
+- `/erd` — entity model
+- `/workflows` — workflow shapes
+- `/decisions` — nine working positions
 
-## Deploy on Vercel
+Each page gets its own thread mapped by pathname.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Setup
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Push this repo to GitHub (must be public for Giscus to work without auth proxy).
+2. Enable **Discussions** under `Settings → General → Features`.
+3. Install the [giscus GitHub App](https://github.com/apps/giscus) on the repo.
+4. Visit [giscus.app](https://giscus.app) and:
+   - Enter the repo
+   - Pick `pathname` mapping
+   - Pick (or create) a Discussion category — recommended: `Announcements` or a new `Feedback` category set to **Announcement** type so only maintainers can start threads
+   - Copy the four IDs from the generated config
+5. Copy `.env.local.example` to `.env.local` and fill in:
+
+   ```bash
+   NEXT_PUBLIC_GISCUS_REPO=owner/repo
+   NEXT_PUBLIC_GISCUS_REPO_ID=R_kgDO...
+   NEXT_PUBLIC_GISCUS_CATEGORY=General
+   NEXT_PUBLIC_GISCUS_CATEGORY_ID=DIC_kwDO...
+   ```
+
+6. Restart `npm run dev`.
+
+If env vars aren't set, the comment section renders a friendly setup card in place of the iframe — so the rest of the site keeps working in the meantime.
+
+### Theme
+
+The Giscus iframe uses the `transparent_dark` theme so it inherits the surrounding section background. To customize further (red accent for buttons, custom font), point `theme` in `src/components/Comments.tsx` at a hosted CSS file generated from [giscus theme starter](https://github.com/giscus/giscus/blob/main/styles/themes/_template.scss).
+
+## Project structure
+
+```
+src/
+  app/
+    page.tsx              # Overview / landing
+    journey/page.tsx      # 01 — discovery process
+    contexts/page.tsx     # 02 — bounded contexts
+    erd/page.tsx          # 03 — entity model
+    glossary/page.tsx     # 04 — vocabulary
+    workflows/page.tsx    # 05 — workflow types
+    organization/page.tsx # 06 — desks/groups/personas
+    decisions/page.tsx    # 07 — working positions
+    next-steps/page.tsx   # 08 — Sprint 2 plan
+  components/
+    SiteNav.tsx           # Top nav
+    SiteFooter.tsx
+    PageHero.tsx          # Reusable hero banner
+    Comments.tsx          # Giscus wrapper + setup-card fallback
+    ErdDiagram.tsx        # Interactive SVG ERD
+    ErdEntityExplorer.tsx # Per-entity card walker
+    GlossaryExplorer.tsx
+    WorkflowsExplorer.tsx
+  data/
+    contexts.ts erd.ts glossary.ts workflows.ts
+    organization.ts decisions.ts
+```
+
+## Deploy
+
+Push to GitHub, connect the repo to Vercel. Set the four `NEXT_PUBLIC_GISCUS_*` env vars in the Vercel dashboard. Done.
