@@ -89,4 +89,31 @@ src/
 
 ## Deploy
 
-Push to GitHub, connect the repo to Vercel. Set the four `NEXT_PUBLIC_GISCUS_*` env vars in the Vercel dashboard. Done.
+### GitHub Pages (current setup)
+
+The site auto-deploys to **https://azzeddine-e.github.io/storyhub/** on every push to `main` via `.github/workflows/deploy.yml`.
+
+One-time setup in the repo:
+
+1. Go to **Settings → Pages**
+2. Under **Build and deployment → Source**, select **GitHub Actions**
+3. Push to `main` (or trigger the workflow manually under the Actions tab) — the first build takes ~1–2 minutes
+
+To enable Giscus comments on the deployed site, add these as **repository secrets** under `Settings → Secrets and variables → Actions`:
+
+- `NEXT_PUBLIC_GISCUS_REPO`
+- `NEXT_PUBLIC_GISCUS_REPO_ID`
+- `NEXT_PUBLIC_GISCUS_CATEGORY`
+- `NEXT_PUBLIC_GISCUS_CATEGORY_ID`
+
+The next workflow run will pick them up. Without them, the friendly setup card renders in place of the comment iframe — the rest of the site is unaffected.
+
+### How the static export works
+
+`next.config.ts` sets `output: 'export'` and reads `NEXT_PUBLIC_BASE_PATH` from the environment. The CI workflow sets it to `/storyhub` so links and `_next/` assets are correctly prefixed for `azzeddine-e.github.io/storyhub/`. Locally the variable is empty so dev still runs at `localhost:3000/`.
+
+The workflow also touches `.nojekyll` in the output to keep GitHub Pages from stripping the `_next/` folder (Jekyll ignores anything prefixed with `_`).
+
+### Vercel (alternative)
+
+If you'd rather deploy to Vercel for previews-per-PR + zero config: connect the repo to Vercel, leave `NEXT_PUBLIC_BASE_PATH` unset (so the site lives at the domain root), and set the four `NEXT_PUBLIC_GISCUS_*` env vars in the project. The same `output: 'export'` build will run cleanly there too.
