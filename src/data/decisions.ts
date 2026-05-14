@@ -24,7 +24,7 @@ export const decisions: Decision[] = [
     title: 'MVP scoping axis',
     topic: 'Scope',
     problem:
-      'Three ways to scope what we build first: by desk, by editorial flow, or by downstream team. We heard signal supporting all three.',
+      'Three ways to scope what we build first: by desk, by editorial flow, or by downstream team. We heard signal across all three in the sessions.',
     position:
       'Anchor on the six priority desks (National, International, DC, Business, Features, Investigates). Build the core editorial flow (Planned Editorial) first, then layer Live and Breaking. Downstream teams (Audience, Planning, Content) get read access and filtered views from day one but don\'t drive schema.',
     validate: 'Validate or refine.',
@@ -34,7 +34,7 @@ export const decisions: Decision[] = [
     title: 'Organizational layers',
     topic: 'Structure',
     problem:
-      "We observed four layers within verticals — Hub, Desk, Beat, Team — but they don't map consistently. Some desks collapse Hub and Desk. DC uses Beat/Team distinctly; National doesn't.",
+      "We observed four layers inside verticals — Hub, Desk, Beat, Team — but they don't map consistently across desks. Some desks collapse Hub and Desk. DC uses Beat/Team distinctly; National doesn't.",
     position:
       'Build with two required layers (Desk as the primary ownership unit, Team as an optional sub-unit) and treat Hub as a display grouping rather than a structural layer. Beat and Team collapse into a single "Team" concept for desks that don\'t distinguish them.',
     validate: 'Is this the right simplification, or do some desks genuinely need four distinct layers?',
@@ -44,7 +44,7 @@ export const decisions: Decision[] = [
     title: 'StoryHub entry threshold',
     topic: 'Workflow',
     problem:
-      'We heard three thresholds in use today: working headline + named point of contact, formal pitch approval, and retroactive entry (breaking news).',
+      'Across the sessions we heard three thresholds in use today: working headline + named point of contact, formal pitch approval, and retroactive entry (breaking news).',
     position:
       'All three are valid — they represent per-workflow-type defaults, not competing standards. Planned Editorial enters at working headline + POC. Long-cycle / Investigative enters at pitch approval. Breaking enters retroactively. Build the system to support all three, with Workflow Type determining which threshold applies.',
     validate: 'Validate or refine.',
@@ -54,7 +54,7 @@ export const decisions: Decision[] = [
     title: 'Status vocabulary',
     topic: 'Data',
     problem:
-      'Different desks use slightly different status labels. We observed: Pursuit, Working to Confirm, Greenlit, In Production, In Review, Scheduled, Published, Republished, Spiked/Killed.',
+      'Different desks use slightly different status labels. We collected the following from the sessions: Pursuit, Working to Confirm, Greenlit, In Production, In Review, Scheduled, Published, Republished, Spiked/Killed.',
     position:
       'One unified status field across all Workflow Types, with a core set of values. Desk-specific labels (e.g., "Working to Solidify" at National) map to the core values rather than extending them. This keeps cross-desk reporting clean.',
     validate:
@@ -74,17 +74,17 @@ export const decisions: Decision[] = [
     number: 7,
     title: 'Tag / Topic taxonomy',
     topic: 'Data',
-    problem: 'Cross-cutting categorization for topic, region, and beat. We heard varying levels of urgency.',
+    problem: 'Cross-cutting categorization for topic, region, and beat. We heard varying levels of urgency across the desks.',
     position:
       "Defer to Phase 2. Build the Tag field into the schema now (so it's ready) but don't invest in populating or governing the taxonomy for August. The entity model and workflows are higher-priority.",
     validate:
-      "Validate or refine. If Tags are required for any specific desk's filtering or reporting at launch, we need to know.",
+      "Validate or refine. If Tags are required for any specific desk's filtering or reporting at launch, we need to hear it now.",
   },
   {
     number: 8,
     title: 'Tool boundaries',
     topic: 'Integrations',
-    problem: 'StoryHub will overlap with tools currently in use. We need to draw clear lines.',
+    problem: 'StoryHub will overlap with tools currently in use across CNN. We need to draw clear lines.',
     position:
       'StoryHub captures decisions and structured outputs. Slack holds conversations. Stellar remains source of truth for published content. SharePoint documents (Notes, Budgets, Handoff Notes) that duplicate what StoryHub tracks get displaced; those that serve a distinct purpose (narrative documents, pitch tool) get linked.',
     validate: 'The principle is straightforward; the desk-by-desk specifics need ratification.',
@@ -94,11 +94,11 @@ export const decisions: Decision[] = [
     title: 'MVP integration list',
     topic: 'Integrations',
     problem:
-      'The SOW names four integrations. We found 25+ tools. Not all need to be in scope for August.',
+      'Airtable named four integrations going in. Across the sessions we counted 25+ tools in active daily use. Not all need to be in scope for August.',
     position:
       'For MVP: Stellar (bidirectional), Slack (notifications), and asset systems (MediaSource, Cloudinary — reference by pointer, no inline preview). Defer Dataminr, iNews, Braze, Zeta, Iconik, and MTnO to Phase 2. Monday.com and Asana data migrates manually or via CSV at launch rather than live integration.',
     validate:
-      'If any deferred integration is critical for a priority desk at launch, we need to hear it.',
+      'If any deferred integration is critical for a priority desk at launch, we need to hear it now.',
   },
 ]
 
@@ -150,11 +150,11 @@ export const keyFindings: Finding[] = [
   {
     title: 'The organizational structure is more layered than expected',
     body:
-      'Two orthogonal axes — vertical desks owning subject-matter coverage, and horizontal teams (Planning, Content, Audience, TRIAD, Editorial Ops) spanning all desks. Within verticals, four layers exist (Hub, Desk, Beat, Team) but map inconsistently. International runs a tri-hub follow-the-sun model. DC has six teams under three beat leaders with dedicated TRIAD staff.',
+      "The org reads as a grid, not a tree. Vertical desks own subject-matter coverage; horizontal teams (Planning, Content, Audience, TRIAD, Editorial Ops) cut across every desk. Inside the verticals, four layers exist (Hub, Desk, Beat, Team) but they don't map the same way at every desk. International runs a tri-hub follow-the-sun model. DC has six teams under three beat leaders with dedicated TRIAD staff.",
   },
   {
-    title: 'The tool landscape is broader than the SOW anticipated',
+    title: 'The tool landscape is broader than Airtable anticipated',
     body:
-      'The SOW names five integrations. We found 25+ tools in active daily use — Monday.com, Slack, Asana, SharePoint, OneNote, Excel, Dataminr, SnapStream, Otter, and more. Several teams already run on Airtable. The integration boundary for MVP needs explicit scoping.',
+      'Airtable named five integrations going into the sprint. Across the sessions we counted 25+ tools in active daily use — Monday.com, Slack, Asana, SharePoint, OneNote, Excel, Dataminr, SnapStream, Otter, and more. Several teams already run on Airtable themselves. The integration boundary for MVP needs explicit scoping.',
   },
 ]

@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
@@ -15,32 +16,44 @@ const NAV = [
   { href: '/next-steps', label: 'Next Steps' },
 ]
 
+// Strip a single trailing slash unless the path is just "/".
+// Needed because `trailingSlash: true` in next.config.ts makes
+// usePathname() return e.g. "/contexts/" while NAV stores "/contexts".
+const normalize = (p: string) => (p.length > 1 ? p.replace(/\/$/, '') : p)
+
 export default function SiteNav() {
   const pathname = usePathname()
+  const current = normalize(pathname ?? '/')
+  const isActive = (href: string) => current === normalize(href)
 
   return (
     <header className="sticky top-0 z-50 backdrop-blur-xl bg-[color-mix(in_srgb,var(--bg)_85%,transparent)] border-b border-[var(--border)]">
       <div className="max-w-[1400px] mx-auto flex items-center justify-between px-6 lg:px-10 h-16">
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-7 h-7 rounded bg-[var(--accent-red)] flex items-center justify-center text-white font-bold text-xs">
-            CNN
-          </div>
-          <div className="flex flex-col leading-tight">
-            <span className="text-[10px] uppercase tracking-[0.18em] text-[var(--text-muted)]">
-              Discovery Synthesis
-            </span>
-            <span className="text-sm font-semibold tracking-tight">StoryHub</span>
-          </div>
+          <Image
+            src="/cnn-logo.png"
+            alt="CNN"
+            width={1000}
+            height={476}
+            priority
+            className="h-6 w-auto brightness-0 invert"
+          />
+          <span className="h-6 w-px bg-[var(--border-strong)]" aria-hidden />
+          <span className="text-sm font-semibold tracking-tight">StoryHub</span>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-7 text-sm">
+        <nav
+          className="hidden lg:flex items-center gap-7 text-sm"
+          aria-label="Primary"
+        >
           {NAV.map((item) => {
-            const active = pathname === item.href
+            const active = isActive(item.href)
             return (
               <Link
                 key={item.href}
                 href={item.href}
                 data-active={active}
+                aria-current={active ? 'page' : undefined}
                 className={`nav-link ${
                   active ? 'text-[var(--text)]' : 'text-[var(--text-dim)] hover:text-[var(--text)]'
                 }`}
@@ -66,19 +79,23 @@ export default function SiteNav() {
             </svg>
           </summary>
           <div className="absolute right-0 top-full mt-2 w-56 bg-[var(--bg-elevated)] border border-[var(--border)] rounded-lg p-2 shadow-xl">
-            {NAV.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`block px-3 py-2 rounded text-sm ${
-                  pathname === item.href
-                    ? 'bg-[var(--bg-card)] text-[var(--text)]'
-                    : 'text-[var(--text-dim)] hover:text-[var(--text)] hover:bg-[var(--bg-card)]'
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {NAV.map((item) => {
+              const active = isActive(item.href)
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={active ? 'page' : undefined}
+                  className={`block px-3 py-2 rounded text-sm ${
+                    active
+                      ? 'bg-[var(--bg-card)] text-[var(--text)] underline decoration-[var(--accent-red)] decoration-2 underline-offset-4'
+                      : 'text-[var(--text-dim)] hover:text-[var(--text)] hover:bg-[var(--bg-card)]'
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              )
+            })}
           </div>
         </details>
       </div>

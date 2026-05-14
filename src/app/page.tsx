@@ -9,7 +9,7 @@ const STATS = [
   { value: '2', unit: 'weeks', label: 'Discovery period', sub: 'Apr 22 – May 6, 2026' },
   { value: '8', unit: 'desk', label: 'Discovery sessions', sub: '+ 3 technical explorations' },
   { value: '60', unit: 'people', label: 'Stakeholders engaged', sub: 'across CNN editorial' },
-  { value: '25+', unit: 'tools', label: 'In active daily use', sub: 'SOW named only 5' },
+  { value: '25+', unit: 'tools', label: 'In active daily use', sub: 'Airtable named only 5' },
   { value: '100', unit: 'stories', label: 'Per day across CNN', sub: '~100–120 daily volume' },
   { value: '70/30', unit: 'split', label: 'StoryHub / Stellar', sub: 'where stories originate' },
 ]
@@ -20,7 +20,7 @@ const SECTIONS = [
     eyebrow: '01',
     title: 'The Journey',
     description:
-      'Two weeks of discovery — what we did, who we spoke to, and the three findings that reshaped our understanding of CNN editorial.',
+      'Two weeks of discovery — the sessions we sat in on, the colleagues Airtable spoke with, and the three findings that reshaped how we see the build.',
     accent: 'red',
   },
   {
@@ -35,7 +35,7 @@ const SECTIONS = [
     eyebrow: '03',
     title: 'The Model',
     description:
-      '15 entities, 25 relationships. The working ERD — Story at the center, Topics tagging it, Storylines and Initiatives grouping it, Deliverables shipping it, Desks owning it. An interactive diagram you can focus and walk.',
+      '15 entities, 25 relationships. The working ERD Airtable proposed to us — Story at the center, Topics tagging it, Storylines and Initiatives grouping it, Deliverables shipping it, Desks owning it. An interactive diagram you can focus and walk.',
     accent: 'orange',
   },
   {
@@ -56,7 +56,7 @@ const SECTIONS = [
     href: '/organization',
     eyebrow: '06',
     title: 'The Organization',
-    description: `${desks.length} desks across 5 editorial groups. Two orthogonal axes — verticals owning coverage and horizontals spanning them.`,
+    description: `${desks.length} desks across 5 editorial groups. The org reads as a grid, not a tree — verticals own coverage; horizontal teams cut across every desk.`,
     accent: 'emerald',
   },
   {
@@ -105,10 +105,11 @@ export default function Home() {
             className="text-lg lg:text-xl text-[var(--text-dim)] max-w-2xl leading-relaxed mb-12 text-pretty fade-up"
             style={{ animationDelay: '0.1s' }}
           >
-            Between April 22 and May 6, the Airtable team conducted eight desk-level discovery
-            sessions and three technical explorations across approximately 60 CNN stakeholders.
-            This site distills what we heard into a navigable picture of how CNN editorial works —
-            and where the picture still needs sharpening.
+            Between April 22 and May 6, we — the CNN product, engineering, and design team —
+            partnered with Airtable on a two-week discovery sprint. Airtable ran eight desk-level
+            sessions and three technical explorations with roughly 60 of our editorial colleagues;
+            we sat through every one. This site is our synthesis of what Airtable proposed back
+            to us, what we observed in the rooms, and where the picture still needs sharpening.
           </p>
 
           <div
@@ -117,7 +118,7 @@ export default function Home() {
           >
             <Link
               href="/journey"
-              className="group inline-flex items-center gap-3 px-6 py-3.5 bg-[var(--accent-red)] hover:bg-[var(--accent-red-bright)] text-white text-sm font-medium rounded transition-colors"
+              className="group inline-flex items-center gap-3 px-6 py-3.5 bg-[var(--accent-red-strong)] hover:bg-[var(--accent-red-strong-hover)] text-white text-sm font-medium rounded transition-colors"
             >
               Start the Journey
               <svg
@@ -170,13 +171,14 @@ export default function Home() {
                 What we learned
               </p>
               <h2 className="font-display text-5xl lg:text-6xl leading-[0.95] text-balance">
-                Three findings that reframed the build.
+                Three findings reframed how we see the build.
               </h2>
             </div>
             <p className="text-[var(--text-dim)] text-lg leading-relaxed self-end max-w-xl">
-              The shape of the work was both more consistent and more varied than expected.
-              Underneath every desk runs a common lifecycle — but the front end, the org, and the
-              tooling each turned out to be deeper than the SOW assumed.
+              The shape of our editorial operation was both more consistent and more varied than
+              we expected going in. Underneath every desk we watched the same lifecycle running —
+              but the front end, the org, and the tooling each turned out to be deeper than
+              Airtable assumed.
             </p>
           </div>
 
@@ -305,18 +307,18 @@ export default function Home() {
           <div className="grid lg:grid-cols-[1fr_auto] gap-10 items-end">
             <div>
               <p className="text-[11px] uppercase tracking-[0.22em] text-[var(--accent-emerald)] mb-4">
-                Tell us where we&apos;re wrong
+                Tell us where we got this wrong
               </p>
               <h2 className="font-display text-3xl lg:text-4xl leading-tight max-w-3xl text-balance mb-4">
                 Each section has its own discussion thread.
               </h2>
               <p className="text-[var(--text-dim)] max-w-2xl leading-relaxed">
-                Pages where the model is most likely to need correction —
-                {' '}<Link href="/erd#discussion" className="text-[var(--text)] underline underline-offset-2 hover:text-[var(--accent-red-bright)]">ERD</Link>,
-                {' '}<Link href="/workflows#discussion" className="text-[var(--text)] underline underline-offset-2 hover:text-[var(--accent-red-bright)]">Workflows</Link>,
-                {' '}<Link href="/contexts#discussion" className="text-[var(--text)] underline underline-offset-2 hover:text-[var(--accent-red-bright)]">Domain</Link>,
-                {' '}<Link href="/decisions#discussion" className="text-[var(--text)] underline underline-offset-2 hover:text-[var(--accent-red-bright)]">Decisions</Link>
-                {' '}— each have their own GitHub-Discussions-backed thread at the bottom of the page. Sign in with GitHub to comment, react, or correct.
+                The pages where our synthesis is most likely to need correction —
+                {' '}<Link href="/erd" className="text-[var(--text)] underline underline-offset-2 hover:text-[var(--accent-red-bright)]">ERD</Link>,
+                {' '}<Link href="/workflows" className="text-[var(--text)] underline underline-offset-2 hover:text-[var(--accent-red-bright)]">Workflows</Link>,
+                {' '}<Link href="/contexts" className="text-[var(--text)] underline underline-offset-2 hover:text-[var(--accent-red-bright)]">Domain</Link>,
+                {' '}<Link href="/decisions" className="text-[var(--text)] underline underline-offset-2 hover:text-[var(--accent-red-bright)]">Decisions</Link>.
+                {' '}Walk through them and tell us where we got it wrong.
               </p>
             </div>
             <Link
@@ -338,12 +340,12 @@ export default function Home() {
           <div className="grid lg:grid-cols-[1fr_auto] gap-10 items-end">
             <div>
               <p className="text-[11px] uppercase tracking-[0.22em] text-[var(--text-muted)] mb-4">
-                Goal of the readout
+                What we want from the readout
               </p>
               <p className="font-display text-3xl lg:text-4xl leading-tight max-w-3xl text-balance">
-                We want to walk out with three things: confidence we&apos;ve captured your
-                operation accurately, clarity on where we still need to get specific together, and
-                a shared plan for the next set of working sessions.
+                Three things, in order: confidence we&apos;ve captured your operation accurately,
+                clarity on where we still need to get specific together, and a shared plan for
+                the next set of working sessions.
               </p>
             </div>
             <Link

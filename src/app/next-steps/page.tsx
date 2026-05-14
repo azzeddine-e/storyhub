@@ -8,7 +8,7 @@ export default function NextStepsPage() {
       <PageHero
         eyebrow="08 — Next Steps"
         title="Four sessions. Two weeks. One shared plan."
-        subtitle="Sprint 2 proposal: lock the data model, finalize the org structure, validate workflow shapes, and define integration boundaries. Each session is 60–90 minutes and pairs to specific design decisions."
+        subtitle="Our Sprint 2 proposal: lock the data model, finalize the org structure, validate workflow shapes, and define integration boundaries. Each session is 60–90 minutes and pairs to specific design decisions."
         accent="cyan"
       />
 
@@ -16,12 +16,12 @@ export default function NextStepsPage() {
       <section className="border-b border-[var(--border)] bg-[var(--bg-elevated)]">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-16">
           <p className="text-[11px] uppercase tracking-[0.22em] text-[var(--text-muted)] mb-4">
-            Goal of the readout
+            What we want from the readout
           </p>
           <p className="font-display text-3xl lg:text-4xl leading-tight max-w-4xl text-balance">
-            We want to walk out with three things: confidence we&apos;ve captured your operation
-            accurately, clarity on where we still need to get specific together, and a shared plan
-            for the next set of working sessions.
+            Three things, in order: confidence we&apos;ve captured your operation accurately,
+            clarity on where we still need to get specific together, and a shared plan for the
+            next set of working sessions.
           </p>
         </div>
       </section>

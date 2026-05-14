@@ -16,7 +16,7 @@ export default function ErdPage() {
       <PageHero
         eyebrow="03 — The Model"
         title="Entity relationships, end-to-end."
-        subtitle="The working model that emerged from the sprint. Each entity is a thing the newsroom names; each line is a verb the newsroom uses. Click anything to focus."
+        subtitle="The working model Airtable proposed to us coming out of the sprint. Each entity is a thing the newsroom names; each line is a verb we heard people use. Click anything to focus."
         accent="amber"
       />
 
@@ -72,11 +72,13 @@ export default function ErdPage() {
           <ErdDiagram />
 
           <p className="mt-4 text-xs text-[var(--text-muted)] leading-relaxed max-w-3xl">
-            This is a working model from the sprint, not a final logical schema. Edge labels
-            describe how teams talk about the connection (e.g. <span className="font-mono-jb text-[var(--text-dim)]">promotes&nbsp;to</span>,{' '}
+            This is the working model Airtable came back to us with at the end of the sprint, not
+            a final logical schema. The edge labels describe how teams talked about each
+            connection in the rooms (e.g.{' '}
+            <span className="font-mono-jb text-[var(--text-dim)]">promotes&nbsp;to</span>,{' '}
             <span className="font-mono-jb text-[var(--text-dim)]">rolls&nbsp;up&nbsp;to</span>,{' '}
-            <span className="font-mono-jb text-[var(--text-dim)]">primary&nbsp;owner</span>) — they will
-            translate into properties, references, or join tables when this is hardened.
+            <span className="font-mono-jb text-[var(--text-dim)]">primary&nbsp;owner</span>) — they
+            will translate into properties, references, or join tables once we harden this.
           </p>
         </div>
       </section>
@@ -157,7 +159,7 @@ export default function ErdPage() {
             Caveats
           </p>
           <h2 className="font-display text-3xl lg:text-4xl mb-10 max-w-3xl text-balance">
-            What this model does not yet decide.
+            What this model doesn&apos;t yet decide.
           </h2>
           <div className="grid md:grid-cols-2 gap-px bg-[var(--border)]">
             {[
@@ -190,7 +192,7 @@ export default function ErdPage() {
 
       <Comments
         accent="orange"
-        description="Missing an entity? Wrong direction on a relationship? A label that doesn't match how your desk talks? Drop it here — the model gets locked in Sprint 2 Session 1, so corrections now save us hours later."
+        description="Did Airtable miss an entity? Did we get a relationship pointing the wrong way? Is there a label that doesn't match how your desk actually talks? Drop it here — we lock the model in Sprint 2 Session 1, so corrections now save us all hours later."
       />
 
       {/* Continue */}

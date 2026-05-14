@@ -17,7 +17,7 @@ export default function DecisionsPage() {
       <PageHero
         eyebrow="07 — The Decisions"
         title="Nine working positions awaiting validation."
-        subtitle="These are the design choices that emerged out of the sprint. Each has a recommendation and an explicit ask: confirm or redirect. They're prerequisites for build."
+        subtitle="The design choices we came out of the sprint with — Airtable's recommendations and our reading of them. Each has a working position and an explicit ask back to editorial: confirm or redirect. They're prerequisites for build."
         accent="purple"
       />
 

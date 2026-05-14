@@ -10,8 +10,8 @@ export default function OrganizationPage() {
     <div>
       <PageHero
         eyebrow="06 — The Organization"
-        title="Two orthogonal axes. Five editorial groups."
-        subtitle="Vertical desks own subject-matter coverage. Horizontal teams span all desks. Layers within verticals — Hub, Desk, Beat, Team — map inconsistently. International runs a tri-hub follow-the-sun model. DC has six teams under three beat leaders."
+        title="A grid, not a tree. Five editorial groups."
+        subtitle="What we found: vertical desks own subject-matter coverage; horizontal teams cut across every desk. The layers within verticals — Hub, Desk, Beat, Team — don't map the same way at every desk. International runs a tri-hub follow-the-sun model. DC has six teams under three beat leaders."
         accent="emerald"
       />
 
@@ -21,9 +21,9 @@ export default function OrganizationPage() {
           <p className="text-[11px] uppercase tracking-[0.22em] text-[var(--text-muted)] mb-4">
             Editorial Groups
           </p>
-          <h2 className="font-display text-4xl mb-2">Five-way grouping above both axes.</h2>
+          <h2 className="font-display text-4xl mb-2">Five-way grouping above the grid.</h2>
           <p className="text-[var(--text-dim)] mb-10 max-w-2xl">
-            Every desk and every horizontal rolls up to exactly one group.
+            Every desk and every horizontal team rolls up to exactly one of these five.
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-px bg-[var(--border)]">
             {editorialGroups.map((g, i) => (
@@ -126,7 +126,7 @@ export default function OrganizationPage() {
           </h2>
           <p className="text-[var(--text-dim)] mb-12 max-w-2xl">
             Some desks collapse Hub and Desk. DC uses Beat/Team distinctly; National doesn&apos;t.
-            The proposed model simplifies to two required layers.
+            Our proposed simplification: two required layers.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--border)]">
             {orgLayers.map((l) => (

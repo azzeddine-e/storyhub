@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
 export default function SiteFooter() {
@@ -6,14 +7,19 @@ export default function SiteFooter() {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-16 grid md:grid-cols-3 gap-12">
         <div>
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-7 h-7 rounded bg-[var(--accent-red)] flex items-center justify-center text-white font-bold text-xs">
-              CNN
-            </div>
+            <Image
+              src="/cnn-logo.png"
+              alt="CNN"
+              width={1000}
+              height={476}
+              className="h-7 w-auto brightness-0 invert"
+            />
+            <span className="h-7 w-px bg-[var(--border-strong)]" aria-hidden />
             <span className="text-sm font-semibold tracking-tight">StoryHub</span>
           </div>
           <p className="text-sm text-[var(--text-dim)] leading-relaxed max-w-xs">
-            A synthesis of two weeks of discovery work. Eight desk-level sessions, three technical
-            sessions, sixty stakeholders.
+            Our synthesis of Airtable&apos;s two-week discovery sprint with CNN editorial. Eight
+            desk-level sessions, three technical sessions, sixty colleagues.
           </p>
         </div>
 

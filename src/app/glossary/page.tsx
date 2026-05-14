@@ -1,5 +1,6 @@
 import PageHero from '@/components/PageHero'
 import GlossaryExplorer from '@/components/GlossaryExplorer'
+import Comments from '@/components/Comments'
 import { glossary } from '@/data/glossary'
 
 export default function GlossaryPage() {
@@ -15,6 +16,10 @@ export default function GlossaryPage() {
         accent="blue"
       />
       <GlossaryExplorer terms={glossary} />
+      <Comments
+        accent="blue"
+        description="A definition that doesn't match how your desk uses the term? A term we're missing entirely? An &lsquo;open&rsquo; one you can confirm? Reference the term name in your comment so threads stay easy to scan."
+      />
     </div>
   )
 }

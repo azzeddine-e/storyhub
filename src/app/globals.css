@@ -8,9 +8,12 @@
   --border-strong: #2e323b;
   --text: #e8e9ec;
   --text-dim: #a3a6ae;
-  --text-muted: #6f7480;
+  --text-muted: #888d99;
   --accent-red: #ef4444;
   --accent-red-bright: #ff5555;
+  /* Darker reds for surfaces with white text (WCAG AA). */
+  --accent-red-strong: #c81e1e;
+  --accent-red-strong-hover: #dc2626;
   --accent-amber: #f59e0b;
   --accent-emerald: #10b981;
   --accent-blue: #3b82f6;
@@ -105,7 +108,11 @@ body {
   box-shadow: 0 0 60px -12px rgba(239, 68, 68, 0.4);
 }
 
-/* Animated underline for nav */
+/* Nav link styling.
+   Hover gets an animated bar (decorative).
+   Active page uses a real text-decoration underline so OS/assistive tech
+   (forced-colors mode, screen readers, high-contrast themes) actually pick
+   it up as a state indicator. */
 .nav-link {
   position: relative;
   transition: color 0.15s;
@@ -122,9 +129,19 @@ body {
   transform-origin: left center;
   transition: transform 0.2s ease;
 }
-.nav-link:hover::after,
-.nav-link[data-active='true']::after {
+.nav-link:hover::after {
   transform: scaleX(1);
+}
+.nav-link[data-active='true'] {
+  text-decoration: underline;
+  text-decoration-color: var(--accent-red);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+/* Suppress the hover bar when the link is already the active page so
+   we don't end up with two stacked indicators. */
+.nav-link[data-active='true']::after {
+  content: none;
 }
 
 /* Card hover */

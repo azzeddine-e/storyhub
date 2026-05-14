@@ -41,7 +41,7 @@ export default function JourneyPage() {
       <PageHero
         eyebrow="01 — The Journey"
         title="Two weeks of listening, drawing, and pressure-testing."
-        subtitle="Eight desk-level sessions. Three technical sessions. Sixty stakeholders. The goal wasn't a deliverable — it was a shared picture of how CNN editorial actually works."
+        subtitle="Eight desk-level sessions. Three technical sessions. Roughly sixty editorial colleagues. Airtable ran the conversations; we sat through them. Our goal wasn't a deliverable — it was getting to a shared picture of how the work actually moves."
         accent="red"
       />
 
@@ -51,7 +51,7 @@ export default function JourneyPage() {
           <div className="grid lg:grid-cols-[1fr_2fr] gap-16">
             <div>
               <p className="text-[11px] uppercase tracking-[0.22em] text-[var(--text-muted)] mb-4">
-                What we did
+                Where we sat in
               </p>
               <h2 className="font-display text-4xl lg:text-5xl leading-tight">
                 Discovery, by the numbers.
@@ -81,7 +81,7 @@ export default function JourneyPage() {
             Sprint timeline
           </p>
           <h2 className="font-display text-4xl lg:text-5xl leading-tight mb-16 max-w-3xl text-balance">
-            Two weeks. Two halves. The first to map the baseline; the second to test where it
+            Two weeks. Two halves. The first mapped the baseline; the second tested where it
             varies.
           </h2>
 
@@ -128,7 +128,7 @@ export default function JourneyPage() {
             What we learned
           </p>
           <h2 className="font-display text-4xl lg:text-5xl leading-tight mb-16 max-w-4xl text-balance">
-            Three findings reframed the build.
+            Three findings reframed how we see the build.
           </h2>
 
           <div className="space-y-px bg-[var(--border)]">

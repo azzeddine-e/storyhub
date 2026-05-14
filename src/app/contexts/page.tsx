@@ -10,7 +10,7 @@ export default function ContextsPage() {
       <PageHero
         eyebrow="02 — The Domain"
         title="Seven bounded contexts. One editorial landscape."
-        subtitle="Each context owns its own vocabulary. Where they meet is where StoryHub does most of its work — translating signals into Stories, Stories into Leaves, and Leaves into Deliverables."
+        subtitle="Each context owns its own vocabulary. Where they meet is where we see StoryHub doing most of its work — translating signals into Stories, Stories into Leaves, and Leaves into Deliverables."
         accent="amber"
       />
 
@@ -26,6 +26,11 @@ export default function ContextsPage() {
 
           <div className="grid lg:grid-cols-12 gap-px bg-[var(--border)] rounded-md overflow-hidden">
             {contexts.map((ctx, i) => {
+              // Tetris-style grid (12-col rows). Each row must total 12 so we
+              // never leave the grid background (gray gap) showing through.
+              // Row 1: 3 + 4 + 3 + 2 = 12  (NG, EP, TR, PB)
+              // Row 2: 3 + 3 + 6      = 12  (AU, CO, AM — AM gets the wide cell
+              //                              because it has the most ownerships)
               const cellSpans = [
                 'lg:col-span-3',
                 'lg:col-span-4',
@@ -33,9 +38,7 @@ export default function ContextsPage() {
                 'lg:col-span-2',
                 'lg:col-span-3',
                 'lg:col-span-3',
-                'lg:col-span-2',
-                'lg:col-span-4',
-                'lg:col-span-12',
+                'lg:col-span-6',
               ]
               return (
                 <Link
@@ -158,7 +161,7 @@ export default function ContextsPage() {
 
       <Comments
         accent="amber"
-        description="Where did we draw a boundary that doesn't match how your desk operates? Should two contexts be merged, or one split? Open questions and corrections welcome — sign in with GitHub to weigh in."
+        description="Where did we draw a boundary that doesn't match how your desk operates? Should two of these contexts be merged, or one split? We're especially keen on corrections here — sign in with GitHub to weigh in."
       />
 
       {/* ERD teaser */}
@@ -173,9 +176,9 @@ export default function ContextsPage() {
                 Want to see how the entities actually relate?
               </h2>
               <p className="text-[var(--text-dim)] max-w-2xl leading-relaxed">
-                The Entity Relationship Diagram lays out 15 entities and 25 relationships in one
-                interactive map — Story at the center, Topics tagging it, Storylines and Initiatives
-                grouping it, Deliverables shipping it, Desks owning it.
+                The Entity Relationship Diagram Airtable proposed to us lays out 15 entities and
+                25 relationships in one interactive map — Story at the center, Topics tagging it,
+                Storylines and Initiatives grouping it, Deliverables shipping it, Desks owning it.
               </p>
             </div>
             <Link
@@ -202,7 +205,7 @@ export default function ContextsPage() {
             </div>
             <Link
               href="/glossary"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--accent-red)] hover:bg-[var(--accent-red-bright)] text-white text-sm font-medium rounded transition-colors whitespace-nowrap"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--accent-red-strong)] hover:bg-[var(--accent-red-strong-hover)] text-white text-sm font-medium rounded transition-colors whitespace-nowrap"
             >
               Open the glossary →
             </Link>

@@ -25,7 +25,7 @@ const CATEGORY_ID = process.env.NEXT_PUBLIC_GISCUS_CATEGORY_ID
 
 export default function Comments({
   heading = 'Discussion',
-  description = 'Have a correction, addition, or question? Drop it here. Threads are stored as GitHub Discussions — sign in with your GitHub account to post.',
+  description = 'Have a correction, addition, or question for us? Drop it here. Threads live on GitHub Discussions — sign in with your GitHub account to post.',
   mapping = 'pathname',
   term,
   accent = 'red',
@@ -54,7 +54,7 @@ export default function Comments({
           <span className="h-px flex-1 bg-[var(--border)] max-w-[80px]" />
         </div>
         <h2 className="font-display text-3xl lg:text-4xl mb-3 max-w-3xl text-balance">
-          What did we miss? What did we get wrong?
+          What did we miss? Where did we get this wrong?
         </h2>
         <p className="text-[var(--text-dim)] max-w-2xl leading-relaxed mb-10">
           {description}
