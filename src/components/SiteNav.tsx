@@ -31,7 +31,7 @@ export default function SiteNav() {
       <div className="max-w-[1400px] mx-auto flex items-center justify-between px-6 lg:px-10 h-16">
         <Link href="/" className="flex items-center gap-3 group">
           <Image
-            src="/cnn-logo.png"
+            src="/cnn-logo.svg"
             alt="CNN"
             width={1000}
             height={476}

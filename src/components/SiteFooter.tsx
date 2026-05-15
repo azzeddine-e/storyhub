@@ -8,7 +8,7 @@ export default function SiteFooter() {
         <div>
           <div className="flex items-center gap-3 mb-4">
             <Image
-              src="/cnn-logo.png"
+              src="/cnn-logo.svg"
               alt="CNN"
               width={1000}
               height={476}
