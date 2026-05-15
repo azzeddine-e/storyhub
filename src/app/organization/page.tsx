@@ -75,12 +75,20 @@ export default function OrganizationPage() {
                 {wave.items.map((d) => (
                   <div key={d.name} className="bg-[var(--bg)] p-6">
                     <h4 className="font-display text-2xl leading-tight mb-1">{d.name}</h4>
-                    <p className="text-xs uppercase tracking-wider text-[var(--text-muted)] mb-3">
-                      {d.primaryWorkflow}
-                    </p>
-                    <p className="text-xs text-[var(--text-dim)] font-mono-jb leading-relaxed">
-                      {d.mix}
-                    </p>
+                    {d.primaryWorkflow ? (
+                      <>
+                        <p className="text-xs uppercase tracking-wider text-[var(--text-muted)] mb-3">
+                          {d.primaryWorkflow}
+                        </p>
+                        <p className="text-xs text-[var(--text-dim)] font-mono-jb leading-relaxed">
+                          {d.mix}
+                        </p>
+                      </>
+                    ) : (
+                      <p className="text-xs uppercase tracking-wider text-[var(--text-muted)] italic">
+                        Not yet interviewed
+                      </p>
+                    )}
                   </div>
                 ))}
               </div>

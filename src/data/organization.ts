@@ -8,13 +8,15 @@ export const editorialGroups: EditorialGroup[] = [
   { name: 'Content', scope: 'Format-specialist makers — digital video, photo, visuals' },
   { name: 'Linear', scope: 'Traditional TV — control room, shows, on-air production' },
   { name: 'Operations', scope: 'Planning · TRIAD · Editorial Ops · Digital Programming' },
-  { name: 'Audience', scope: 'Programming · Off-Platform · Newsletters · ASI · Audience Development' },
+  { name: 'Audience', scope: 'Programming · Off-Platform · Newsletters · Audience Development' },
 ]
 
 export interface Desk {
   name: string
-  primaryWorkflow: string
-  mix: string
+  // primaryWorkflow and mix are synthesis outputs from desk-level interviews.
+  // Leave undefined for desks we have not yet interviewed — do not estimate.
+  primaryWorkflow?: string
+  mix?: string
   priorityWave: 'Wave 1' | 'Wave 2' | 'TBD'
 }
 
@@ -29,7 +31,7 @@ export const desks: Desk[] = [
   { name: 'Health', primaryWorkflow: 'Calendar-driven', mix: '55% Calendar / 15% News / 5% Breaking / 25% Contracted', priorityWave: 'Wave 2' },
   { name: 'Live News', primaryWorkflow: 'Live + Breaking', mix: '20% Planned / 80% Breaking', priorityWave: 'Wave 2' },
   { name: 'CNN en Español', primaryWorkflow: 'News-driven', mix: '65% Planned / 10% Live / 25% Breaking', priorityWave: 'Wave 2' },
-  { name: 'Sports', primaryWorkflow: 'News-driven', mix: '55% Planned / 20% Live / 20% Breaking / 5% Contracted', priorityWave: 'TBD' },
+  { name: 'Sports', priorityWave: 'TBD' },
   { name: 'Politics', primaryWorkflow: 'News-driven', mix: '65% Planned / 10% Live / 25% Breaking', priorityWave: 'TBD' },
   { name: 'Enterprise (cross-cutting)', primaryWorkflow: 'News-driven (long-cycle)', mix: '90% Planned / 10% Breaking', priorityWave: 'Wave 2' },
 ]
@@ -45,7 +47,7 @@ export const horizontals: Horizontal[] = [
   { name: 'Editorial Operations', group: 'Operations', spans: 'Every desk running field operations' },
   { name: 'TRIAD (Legal · Standards · Fact Check)', group: 'Operations', spans: 'Every desk publishing sensitive content' },
   { name: 'Content (Video Editorial · VOD/Streaming · Photos · Visuals)', group: 'Content', spans: 'Every desk publishing visual content' },
-  { name: 'Audience (Programming · Off-Platform · Newsletters · ASI)', group: 'Audience', spans: 'Every published piece' },
+  { name: 'Audience (Programming · Off-Platform · Newsletters)', group: 'Audience', spans: 'Every published piece' },
   { name: 'Global Productions', group: 'Operations', spans: 'Topic-aligned desks receiving contracted work' },
 ]
 

@@ -54,7 +54,7 @@ export const contexts: BoundedContext[] = [
     name: 'Audience',
     shortName: 'AU',
     description:
-      'Post-publish placement and audience signal. Programming grid, Off-Platform, Newsletters, ASI.',
+      'Post-publish placement and audience signal. Programming grid, Off-Platform, Newsletters.',
     ownerships: ['Deliverable', 'Platform', 'Newsletter', 'Hit', 'Package', 'Off-platform'],
     color: 'from-emerald-500/20 to-emerald-500/5',
     accent: 'emerald',
