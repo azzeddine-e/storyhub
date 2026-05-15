@@ -16,6 +16,11 @@ const NAV = [
   { href: '/next-steps', label: 'Next Steps' },
 ]
 
+// next/image with `unoptimized: true` does not auto-prefix public-folder URLs
+// with the configured basePath/assetPrefix, so we apply it manually here so
+// that assets resolve correctly on GitHub Pages (served from /storyhub/).
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? ''
+
 // Strip a single trailing slash unless the path is just "/".
 // Needed because `trailingSlash: true` in next.config.ts makes
 // usePathname() return e.g. "/contexts/" while NAV stores "/contexts".
@@ -31,7 +36,7 @@ export default function SiteNav() {
       <div className="max-w-[1400px] mx-auto flex items-center justify-between px-6 lg:px-10 h-16">
         <Link href="/" className="flex items-center gap-3 group">
           <Image
-            src="/cnn-logo.svg"
+            src={`${BASE_PATH}/cnn-logo.svg`}
             alt="CNN"
             width={1000}
             height={476}

@@ -1,6 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+// See SiteNav for why we prefix manually.
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? ''
+
 export default function SiteFooter() {
   return (
     <footer className="border-t border-[var(--border)] mt-32">
@@ -8,7 +11,7 @@ export default function SiteFooter() {
         <div>
           <div className="flex items-center gap-3 mb-4">
             <Image
-              src="/cnn-logo.svg"
+              src={`${BASE_PATH}/cnn-logo.svg`}
               alt="CNN"
               width={1000}
               height={476}
